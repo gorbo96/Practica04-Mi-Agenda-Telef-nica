@@ -1,27 +1,43 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <title>Prueba de rama</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="estilo1.css" type="text/css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+        <script type="text/javascript" src="ajax.js"></script>
+        <link type="text/css" href="css/estilo1.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-             <img src="imagenes/icono.png" alt="Logo"/>
-             <h1>Guia telefonica</h1>
-             <img src="imagenes/usuario.png" alt="usuario"/>
-             <img src="imagenes/llamada.png" alt="llamada"/>
-             <img src="imagenes/correo.png" alt="correo"/>
-             <img src="imagenes/editar.png" alt="editar"/>             
-        </header>        
-        <section class="asociados">
+        <title>Eliminar Telefono</title>
+</head>
+<body>
+<header>
+        <img src="imagenes/icono.png" alt="Logo" class="cabecera"/>
+        <h1>Guia telefonica</h1>
+        <img src="imagenes/usuario.png" alt="usuario"/>
+        <img src="imagenes/llamada.png" alt="llamada" class="cabecera"/>
+        <img src="imagenes/correo.png" alt="correo" class="cabecera"/>
+        <img src="imagenes/editar.png" alt="editar" class="cabecera"/>             
+    </header>
+    <section>
+    <?php
+        include '../../../config/conexionBD.php';        
+        $numero=$_GET['numero'];        
+        $sql="DELETE FROM telefonos WHERE tel_numero='$numero'";
+        if($conn->query($sql)===TRUE){
+            echo "<p> Se ha eliminado el registro </p>";
+
+        }else{
+            if($conn->errno ==1062){
+                echo "<p class='error'></p>";
+                
+            }else{
+                echo"<p class='error' Error: ".mysql_error($conn). "</p>";
+            }
+        }
+        $conn->close();
+        echo "<button><a href='micuenta.php'>Regresar</a></button> "
+
+    ?>
+    </section>
+    <section class="asociados">
             <h2>Correo Electronico Asociados</h2>
             <img src="imagenes/gmail.png" alt="Gmail" class="Icono"/>
             <img src="imagenes/yahoo.png" alt="Yahoo" class="Icono"/>
@@ -46,5 +62,6 @@ and open the template in the editor.
                 <p>Nos reservados el derecho a proporcinar a otras instituciones, empresas, o cualquier ente la informacion acerca de la informacion generada por el uso de la pagina</p>
             </article>            
         </section>
-    </body>
+
+</body>
 </html>

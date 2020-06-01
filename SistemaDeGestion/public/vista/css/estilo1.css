@@ -40,12 +40,45 @@ img.Icono {
     width: 10%;
     padding: 0% 7% 0%;    
 }
+section.nosotros {
+    float: left;
+}
 section.nosotros article {
     float: right;
     width: 85%;
 }
-section.nosotros image {
+section.nosotros img {
     float: left;
     width: 10%;
     padding: 2%;
+}
+form{
+    width: 70%;
+    float: left;
+    margin-left: 15%;
+}
+form label{
+    width: 100%;    
+    padding: 2% 0% 2%;
+    float: left;
+}
+form input{
+    width: 100%;
+    margin-left: 1%;
+    padding: 1% 0% 1%;
+    float: left;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #b19c43;    
+}
+button {
+    background-color: #e4c856;
+    font-size: larger;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 15px;
+    border: 2px solid #e4c856;
+    margin-top: 1%;
+    margin-left: 1%;
+    padding: 1%;
 }
